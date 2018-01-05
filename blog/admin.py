@@ -5,6 +5,7 @@ from .models import Post
 
 class PostAdmin(admin.ModelAdmin):
     search_fields = ['title']
+    list_filter = ['published_date']
 
 
 admin.site.register(Post, PostAdmin)
