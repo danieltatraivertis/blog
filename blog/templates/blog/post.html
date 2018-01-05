@@ -14,11 +14,11 @@
         <h1 align="center"><a href="https://vertis.com">Vertis blog</a></h1>
       </div>
           <div class="post_alone">
-            <tr><td>
-              <tr><h1><a href="">{{ post.title }}</a></h1></tr>
-              <tr><p>{{ post.text|linebreaksbr }}</p></tr>
-              <tr><p class="published">published: {{ post.published_date }}</p></tr>
-            </td></tr>
+            <td>
+              <tr><td><h1><a href="">{{ post.title }}</a></h1></tr></td>
+              <tr><td><p>{{ post.text|linebreaksbr }}</p></tr></td>
+              <tr><td><p class="published">published: {{ post.published_date }}</p></tr></td>
+            </tr>
           </div>
 
     </body>
