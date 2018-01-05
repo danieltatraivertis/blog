@@ -28,3 +28,8 @@ h1 a {
   font-style: italic;
   color: grey;
 }
+
+img.resize {
+  width: 200px;
+  height: auto;
+}

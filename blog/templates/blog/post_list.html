@@ -16,6 +16,7 @@
         {% for post in posts %}
         <div class="post">
           <tr><td><h1><a href="{% url 'detail' post.id %}">{{ post.title }}</a></h1></tr></td>
+          <tr><td><img class="resize" src="/{{ post.picture }}" alt="{{ post.title }} image"></tr></td>
           <tr><td><p>{{ post.text|linebreaksbr }}</p></tr></td>
           <tr><td><p class="published">published: {{ post.published_date }}</p></tr></td>
         </div>
