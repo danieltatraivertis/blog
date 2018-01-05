@@ -5,7 +5,7 @@ from . import views
 
 
 urlpatterns = [
-    path('', post_list),
+    path('', post_list, name='index'),
     # ex: /polls/5/
     path('<int:post_id>/', views.post_id, name='detail'),
 

@@ -11,11 +11,11 @@
     <body>
       <div class="page-header">
         <img src="{% static 'picture/header-logo-white.png' %}" alt="Vertis logo" style="float:left">
-        <h1 align="center"><a href="https://vertis.com">Vertis blog</a></h1>
+        <h1 align="center"><a href="{% url 'index' %}">Vertis blog</a></h1>
       </div>
       <div class="post_alone">
           <tr><td><h1><a href="">{{ post.title }}</a></h1></tr></td>
-          <tr><td><img src="/{{ post.picture }}" alt="{{ post.title }} image"></tr></td>
+          <tr><td><img class="resize" src="/{{ post.picture }}" alt="{{ post.title }} image"></tr></td>
           <tr><td><p>{{ post.text|linebreaksbr }}</p></tr></td>
           <tr><td><p class="published">published: {{ post.published_date }}</p></tr></td>
       </div>

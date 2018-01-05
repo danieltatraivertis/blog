@@ -1,5 +1,5 @@
 .post {
-    margin: 40px 200px 40px 200px;
+    margin: 40px 100px 40px 100px;
     background-color: #e4e1b0;
     border: 1px solid black;
     padding: 20px 20px 20px 20px;
@@ -7,7 +7,7 @@
 
 .post_alone {
     text-align: center;
-    margin: 40px 200px 40px 200px;
+    margin: 40px 100px 40px 100px;
     background-color: #e4e1b0;
     border: 1px solid black;
     padding: 20px 20px 20px 20px;
