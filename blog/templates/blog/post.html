@@ -18,6 +18,13 @@
           <tr><td><img class="resize" src="/{{ post.picture }}" alt="{{ post.title }} image"></tr></td>
           <tr><td><p>{{ post.text|linebreaksbr }}</p></tr></td>
           <tr><td><p class="published">published: {{ post.published_date }}</p></tr></td>
+          {% for comment in comments %}
+            <div class="comment">
+              <tr><td><p><b>{{ comment.author }}</b></p></td></tr>
+              <tr><td><p>{{ comment.content|linebreaksbr }}</p></td></tr>
+              <tr><td><p class="published">last edited: {{ comment.last_updated }}</p></td></tr>
+            </div>
+          {% endfor %}
       </div>
     </body>
 </html>
