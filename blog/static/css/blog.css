@@ -1,13 +1,16 @@
 .post {
-    margin: 40px 100px 40px 100px;
+    margin: 5% 20% 5% 20%;
     background-color: #e4e1b0;
     border: 1px solid black;
     padding: 20px 20px 20px 20px;
 }
 
+
+
+
 .comment {
     margin: 20px 40px 20px 40px;
-    background-color: #e4e1b0;
+    background-color: #c2be53;
     border: 1px solid black;
     padding: 10px 20px 10px 20px;
 }

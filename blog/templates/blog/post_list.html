@@ -9,8 +9,13 @@
         <link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
     </head>
     <body>
+      <tr>
+      <td>
       <div class="page-header">
         <a href="https://vertis.com"><img src="{% static 'picture/header-logo-white.png' %}" alt="Vertis logo" style="float:left"></a>
+        <div class="toolbar">
+          <p style="float:right">ASD</p>
+        </div>
         <h1 align="center"><a href="{% url 'index' %}">Vertis blog</h1>
       </div>
         {% for post in posts %}
@@ -36,5 +41,7 @@
           </form>
         </div>
         {% endfor %}
+        </td>
+        </tr>
     </body>
 </html>
