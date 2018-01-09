@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from .views import post_list
 from . import views
 
@@ -12,5 +12,8 @@ urlpatterns = [
         views.post_new_comment,
         name='postnewcomment'
         ),
+    path('accounts/', include('django.contrib.auth.urls'), name='login'),
+    path('accounts/', include('django.contrib.auth.urls'), name='logout'),
+    path('accounts/', include('django.contrib.auth.urls'), name='profile'),
 
 ]

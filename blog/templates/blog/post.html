@@ -10,8 +10,16 @@
     </head>
     <body>
       <div class="page-header">
-        <img src="{% static 'picture/header-logo-white.png' %}" alt="Vertis logo" style="float:left">
-        <h1 align="center"><a href="{% url 'index' %}">Vertis blog</a></h1>
+        <a href="https://vertis.com"><img src="{% static 'picture/header-logo-white.png' %}" alt="Vertis logo" style="float:left"></a>
+        <div class="toolbar">
+          <p style="float:right">| {{ request.user }}</p>
+          {% if  request.user.is_authenticated %}
+            <p style="float:right"><a href="{% url 'logout' %}">Logout |</a></p>
+          {% else %}
+            <p style="float:right"><a href="{% url 'login' %}">Login |</a></p>
+          {% endif %}
+        </div>
+        <h1 align="center"><a href="{% url 'index' %}">Vertis blog</h1>
       </div>
       <div class="post">
           <tr><td><h1><a href="">{{ post.title }}</a></h1></tr></td>
