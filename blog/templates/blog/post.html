@@ -25,6 +25,11 @@
               <tr><td><p class="published">last edited: {{ comment.last_updated }}</p></td></tr>
             </div>
           {% endfor %}
+          <form class=comment action="{% url 'postnewcomment' post.id %}" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Send">
+          </form>
       </div>
     </body>
 </html>

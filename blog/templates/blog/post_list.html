@@ -35,8 +35,7 @@
           {% endfor %}
           <form class=comment action="{% url 'postnewcomment' post.id %}" method="post">
             {% csrf_token %}
-            <label for="post_new_comment">Comment: </label>
-            <input id="post_new_comment" size="100" type="text" name="post_new_comment" value="{{ new_comment }}" placeholder="Write a comment..."><br>
+            {{ form }}
             <input type="submit" value="Send">
           </form>
         </div>
