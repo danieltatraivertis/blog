@@ -1,0 +1,48 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <title>Vertis blog</title>
+        <link rel="icon" href="{% static 'picture/favicon.ico' %}">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        <link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+      <div class="page-header">
+        <a href="https://vertis.com"><img src="{% static 'picture/header-logo-white.png' %}" alt="Vertis logo" style="float:left"></a>
+        <div class="toolbar">
+          <p style="float:right">| {{ request.user }}</p>
+          {% if  request.user.is_authenticated %}
+            <p style="float:right"><a href="{% url 'logout' %}">Logout |</a></p>
+          {% else %}
+            <p style="float:right"><a href="{% url 'login' %}">Login |</a></p>
+          {% endif %}
+        </div>
+        <h1 align="center"><a href="{% url 'index' %}">Vertis blog</h1>
+      </div>
+        {% for post in posts %}
+        <div class="post">
+          <tr><td><h1><a href="{% url 'detail' post.id %}">{{ post.title }}</a></h1></td></tr>
+          <tr><td><img class="resize" src="/{{ post.picture }}" alt="{{ post.title }} image"></td></tr>
+          <tr><td><p>{{ post.text|linebreaksbr }}</p></td></tr>
+          <tr><td><p class="published">published: {{ post.published_date }}</p></td></tr>
+          {% for comment in comments %}
+            {% if comment.post.title == post.title %}
+              <div class="comment">
+                <tr><td><p><b>{{ comment.author }}</b></p></td></tr>
+                <tr><td><p>{{ comment.content|linebreaksbr }}</p></td></tr>
+                <tr><td><p class="published">last edited: {{ comment.last_updated }}</p></td></tr>
+              </div>
+            {% endif %}
+          {% endfor %}
+          <form class=comment action="{% url 'postnewcomment' post.id %}" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Send">
+          </form>
+        </div>
+        {% endfor %}
+
+    </body>
+</html>

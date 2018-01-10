@@ -1,37 +1,102 @@
 {% block content %}
+{% load staticfiles %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by TEMPLATED
+http://templated.co
+Released for free under the Creative Commons Attribution License
 
-{% if form.errors %}
-<p>Your username and password didn't match. Please try again.</p>
-{% endif %}
+Name       : Ministerial
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20121029
 
-{% if next %}
-    {% if user.is_authenticated %}
-    <p>Your account doesn't have access to this page. To proceed,
-    please login with an account that has access.</p>
-    {% else %}
-    <p>Please login to see this page.</p>
-    {% endif %}
-{% endif %}
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Vertis IT blog login</title>
+<link href='http://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Abel|Satisfy' rel='stylesheet' type='text/css' />
+<link href="{% static 'css/default.css' %}" rel="stylesheet" type="text/css" media="all" />
+<link rel="shortcut icon" href="{% static 'images/favicon.ico' %}"/>
+<!--[if IE 6]>
+<link href="default_ie6.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+</head>
+<body>
+<div id="wrapper">
+  <div id="header-wrapper">
+    <div id="header">
+      <div id="logo">
+        <div id="vertis-logo">
+          <img src="{% static 'picture/header-logo-white.png' %}" alt="Vertis logo">
+        </div>
+        <h1><a href="{% url 'index' %}">IT blog</a></h1>
+      <!-- <p>Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a></p> -->
+      </div>
+      <div id="menu">
+        <ul>
+          <li><a href="/" accesskey="1" title="">Homepage</a></li>
+          <!-- <li><a href="#" accesskey="2" title="">Our Clients</a></li> -->
+          <li><a href="https://vertis.com/en/page/get-to-know-us" accesskey="2" title="">About Us</a></li>
+          <li><a href="https://vertis.com/en/page/join-us" accesskey="3" title="">Careers</a></li>
+          <li><a href="https://vertis.com/en/page/contact-us" accesskey="4" title="">Contact Us</a></li>
+        </ul>
+        <div id="toolbar">
+          <p style="float:right">&nbsp;&nbsp;||&nbsp;&nbsp;{{ request.user }}</p>
+          {% if  request.user.is_authenticated %}
+            <a style="float:right" href="{% url 'logout' %}">Logout</a>
+          {% else %}
+            <a style="float:right" href="{% url 'login' %}">Login</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-wrapper">
+    <div class="page">
+      <div class="wide-content">
+        <div class=login-box>
+          <h2>Please log in!</h2>
+          {% if form.errors %}
+          <p>Your username and password didn't match. Please try again.</p>
+          {% endif %}
 
-<form method="post" action="{% url 'login' %}">
-{% csrf_token %}
+          {% if next %}
+              {% if user.is_authenticated %}
+              <p>Your account doesn't have access to this page. To proceed,
+              please login with an account that has access.</p>
+              {% else %}
+              <p>Please login to see this page.</p>
+              {% endif %}
+          {% endif %}
 
-<div>
-  <td>{{ form.username.label_tag }}</td>
-  <td>{{ form.username }}</td>
-</div>
-<div>
-  <td>{{ form.password.label_tag }}</td>
-  <td>{{ form.password }}</td>
-</div>
+          <form method="post" action="{% url 'login' %}">
+          {% csrf_token %}
 
-<div>
-  <input type="submit" value="login" />
-  <input type="hidden" name="next" value="{{ next }}" />
-</div>
-</form>
+          <div>
+            <td>{{ form.username.label_tag }}</td>
+            <td>{{ form.username }}</td>
+          </div>
+          <div>
+            <td>{{ form.password.label_tag }}</td>
+            <td>{{ form.password }}</td>
+          </div>
 
-{# Assumes you setup the password_reset view in your URLconf #}
-<p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+          <div>
+            <input class="button-style" type="submit" value="login" />
+            <input type="hidden" name="next" value="{{ next }}" />
+          </div>
+          </form>
 
-{% endblock %}
+          {# Assumes you setup the password_reset view in your URLconf #}
+          <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+
+          {% endblock %}
+        </div>
+      </div>
+    </div>
+  </div>

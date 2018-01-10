@@ -1,0 +1,581 @@
+
+/*
+Design by TEMPLATED
+http://templated.co
+Released for free under the Creative Commons Attribution License
+*/
+
+body {
+  margin: 50px 0px 0px 0px;
+  padding: 0;
+  background: #E6E6E6 url("/blog/static/images/main-bg.jpg") repeat;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  color: #8F8F8F;
+}
+
+h1, h2, h3 {
+  margin: 0;
+  padding: 0;
+  font-weight: 200;
+  color: #222222;
+}
+
+h2 {
+  font-size: 3em;
+}
+
+p, ol, ul {
+  margin-top: 0px;
+  padding: 0px;
+}
+
+p, ol {
+  line-height: 180%;
+}
+
+strong {
+}
+
+a {
+  color: #5C5539;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a img {
+  border: none;
+}
+
+img.border {
+}
+
+img.alignleft {
+  float: left;
+}
+
+img.alignright {
+  float: right;
+}
+
+img.aligncenter {
+  margin: 0px auto;
+}
+
+hr {
+  display: none;
+}
+
+/** WRAPPER */
+
+#wrapper {
+  overflow: hidden;
+  width: 1200px;
+  margin: 0px auto;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 10px 5px rgba(0,0,0,.2);
+}
+
+.container {
+  width: 1000px;
+  margin: 0px auto;
+}
+
+.clearfix {
+  clear: both;
+}
+
+/* Header */
+
+#header-wrapper {
+  overflow: hidden;
+  height: 150px;
+  background: #212529;
+}
+
+#header {
+  width: 1200px;
+  height: 150px;
+  margin: 0 auto;
+  padding: 0px 0px;
+}
+
+/* Logo */
+
+#logo {
+  float: left;
+  width: 310px;
+  height: 150px;
+  background: #BF8F45;
+  padding: 0px 0px 0px 40px;
+}
+
+#logo h1 {
+  padding: 50px 0px 0px 0px;
+  letter-spacing: -2px;
+  font-size: 3.6em;
+}
+
+#logo h1 a {
+  text-decoration: none;
+  color: #1B2024;
+}
+
+#logo p {
+  margin-top: -10px;
+  color: #5F5950;
+}
+
+#toolbar {
+  float: right;
+  padding: 40px 40px 0px 0px;
+  width: 200px;
+  height: 80px;
+  display: block;
+}
+
+/* Menu */
+
+#menu {
+  float: left;
+  width: 810px;
+  height: 80px;
+  padding: 20px 40px 0px 0px;
+
+}
+
+#menu ul {
+  float: left;
+  margin: 0;
+  padding: 40px 0px 0px 40px;
+  list-style: none;
+  line-height: normal;
+}
+
+#menu li {
+  float: left;
+}
+
+#menu a {
+  display: block;
+  margin-left: 1px;
+  padding: 7px 20px 7px 20px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Oswald', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  color: #757575;
+}
+
+#toolbar a {
+  display: block;
+  letter-spacing: 1px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: 'Oswald', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  color: #757575;
+  padding: 2px 0px 0px 0px;
+}
+
+#toolbar p {
+  display: block;
+  letter-spacing: 1px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: 'Oswald', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  color: #757575;
+}
+
+#menu a:hover, #menu .current_page_item a {
+  text-decoration: none;
+  background: #BF8F45;
+  box-shadow: inset 0px 0px 10px 5px rgba(0,0,0,.1);
+  border-radius: 5px;
+  color: #212529;
+}
+
+/* Page */
+
+.page-wrapper {
+  overflow: hidden;
+}
+
+.page {
+  overflow: hidden;
+  width: 1120px;
+  margin: 0px auto;
+  padding: 50px 40px;
+  color: #8F8F8F;
+}
+
+/** CONTENT */
+
+.wide-content {
+}
+
+.wide-content h2 {
+  padding: 0px 0px 20px 0px;
+  letter-spacing: -1px;
+  font-size: 36px;
+  color: #222222;
+}
+
+
+/** CONTENT */
+
+#content {
+  float: right;
+  width: 800px;
+  padding: 0px 0px 0px 0px;
+}
+
+#content h2 {
+  padding: 0px 0px 20px 0px;
+  letter-spacing: -1px;
+  font-size: 36px;
+  color: #222222;
+}
+
+#content .subtitle {
+  padding: 0px 0px 30px 0px;
+  text-transform: uppercase;
+  font-family: 'Oswald', sans-serif;
+  font-size: 18px;
+  color: #81AFC5;
+}
+
+/** SIDEBAR */
+
+#sidebar {
+  float: left;
+  width: 290px;
+  padding: 0px 0px 20px 0px;
+}
+
+#sidebar h2 {
+  padding: 0px 0px 30px 0px;
+  letter-spacing: -1px;
+  font-size: 2em;
+}
+
+/* Footer */
+
+#footer {
+  height: 100px;
+  margin: 0 auto;
+  padding: 50px 0px 15px 0px;
+}
+
+#footer p {
+  text-shadow: 1px 1px 0px #FFFFFF;
+  text-align: center;
+  font-size: 12px;
+  color: #4D565E;
+}
+
+#footer a {
+  color: #4D565E;
+  text-decoration: none;
+}
+
+
+/* Three Column Footer Content */
+
+#footer-wrapper {
+  background: #dfdfdf;
+}
+
+#footer-content {
+  overflow: hidden;
+  width: 1120px;
+  margin: 0px auto;
+  padding: 50px 40px;
+  color: #717171;
+
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+    color: white;
+    background-color: #bf8f45;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 1px;
+    font-weight: 300;
+    font-size: 16px;
+    color: #FFFFFF;
+}
+
+#footer-content{
+  text-align: center;
+   font-size: 16px;
+}
+
+#footer-content span{
+  font-weight:500;
+}
+
+#footer-content a {
+  text-decoration: none;
+}
+
+#footer-content h2 {
+  margin: 0px;
+  padding: 0px 0px 30px 0px;
+  letter-spacing: -1px;
+  font-size: 30px;
+  color: #212529;
+
+}
+
+#footer-content #fbox1 {
+  float: left;
+  width: 280px;
+  margin-right: 30px;
+}
+
+#footer-content #fbox2 {
+  float: left;
+  width: 500px;
+}
+
+#footer-content #fbox3 {
+  float: right;
+  width: 280px;
+}
+
+.banner {
+  overflow: hidden;
+  width: 1120px;
+  margin: 40px auto 0px auto;
+}
+
+/* Button Style */
+
+.button-style {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 7px 30px;
+  background: #bf8f45;
+  border-radius: 5px;
+}
+
+.button-style a {
+  letter-spacing: 1px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  color: #FFFFFF;
+}
+
+/* List Style 1 */
+
+ul.style1 {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+
+ul.style1 li {
+  padding: 20px 0px 20px 0px;
+  border-top: 1px dashed #E6E7DC;
+}
+
+ul.style1 a {
+  text-decoration: none;
+  color: #6B6B6B;
+}
+
+ul.style1 a:hover {
+  text-decoration: underline;
+  color: #6B6B6B;
+}
+
+ul.style1 .first {
+  padding-top: 0px;
+  border-top: none;
+}
+
+/* List Style 2 */
+
+ul.style2 {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+
+ul.style2 li {
+  padding: 15px 0px 15px 0px;
+  border-top: 1px solid #E6E7DC;
+}
+
+ul.style2 .first {
+  padding-top: 0px;
+  border-top: none;
+}
+
+/* List style 3 */
+
+ul.style3 {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+
+ul.style3 li {
+  padding: 20px 0px 20px 0px;
+  border-top: 1px solid #E6E7DC;
+}
+
+ul.style3 p {
+  margin: 0px;
+  padding: 0px;
+}
+
+ul.style3 img {
+  float: left;
+  margin-top: 3px;
+  margin-right: 20px;
+}
+
+ul.style3 .posted {
+  padding: 10px 0px 10px 0px;
+  font-size: 8pt;
+  color: #A2A2A2;
+}
+
+ul.style3 .first {
+  padding-top: 0px;
+  border-top: none;
+}
+
+/* Recent News */
+
+#recent-news {
+  overflow: hidden;
+  width: 1120px;
+  padding: 50px 40px;
+  background: #2F2F2F;
+  color: #8C8C8C;
+}
+
+#recent-news h2 {
+  padding: 0px 0px 20px 0px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2.5em;
+  color: #EDEDED;
+}
+
+#recent-news .date {
+  padding: 0px 0px 10px 0px;
+  font-weight: bold;
+  font-style: normal;
+  color: #E3E3E3;
+}
+
+#recent-news p {
+  font-style: italic;
+}
+
+#recent-news a {
+  font-style: normal;
+  color: #B8B8B8;
+}
+
+#recent-news #rbox1 {
+  float: left;
+  width: 250px;
+  margin-right: 40px;
+}
+
+#recent-news #rbox2 {
+  float: left;
+  width: 250px;
+  margin-right: 40px;
+}
+
+#recent-news #rbox3 {
+  float: left;
+  width: 250px;
+}
+
+#recent-news #rbox4 {
+  float: right;
+  width: 250px;
+}
+
+/* Button Style */
+
+.button-style1 {
+  margin-top: 30px;
+}
+
+.button-style1 a {
+  padding: 10px 25px;
+  background: #BF8F45;
+  border-radius: 5px;
+  text-decoration: none;
+
+  color: #FFFFFF !important;
+}
+
+#vertis-logo {
+  float: left;
+  background: #BF8F45;
+  padding: 50px 30px 0px 0px;
+}
+
+hr {
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 2px;
+}
+
+.comment {
+  background: #dfdfdf;
+  padding: 10px 30px;
+  margin: 10px 0px;
+  border-radius: 5px;
+
+}
+
+.comment-author {
+  color: #212529;
+  font-weight: bold;
+}
+
+.comment-content {
+  color: #212529;
+  line-height: 10%;
+}
+
+.comment-published {
+  text-align: right;
+  line-height: 10%;
+  font-style: italic;
+}
+
+#footer-image {
+  max-width: 50%;
+  height: auto;
+}
+
+.login-box {
+    background: #dfdfdf;
+    padding: 10px 30px;
+    margin: 10px 0px;
+    border-radius: 5px;
+}
