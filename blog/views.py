@@ -1,10 +1,9 @@
 from django.shortcuts import render
 from django.utils import timezone
 from .models import Post, Comment
-from .forms import CommentForm, CommentForm2
+from .forms import CommentForm
 from django.contrib.auth import get_user_model
 from django.http import HttpResponseRedirect
-from django.contrib.auth.models import User
 
 
 # Create your views here.

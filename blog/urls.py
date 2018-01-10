@@ -2,7 +2,6 @@ from django.urls import path, include
 from .views import post_list
 from . import views
 
-
 urlpatterns = [
     path('', post_list, name='index'),
     # ex: /polls/5/
@@ -15,5 +14,4 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls'), name='login'),
     path('accounts/', include('django.contrib.auth.urls'), name='logout'),
     path('accounts/', include('django.contrib.auth.urls'), name='profile'),
-
 ]

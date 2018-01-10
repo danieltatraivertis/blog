@@ -60,40 +60,15 @@ Released   : 20121029
     <div class="page">
       <div class="wide-content">
         <div class=login-box>
-          <h2>Please log in!</h2>
-          {% if form.errors %}
-          <p>Your username and password didn't match. Please try again.</p>
-          {% endif %}
+          <h2>Please register!</h2>
 
-          {% if next %}
-              {% if user.is_authenticated %}
-              <p>Your account doesn't have access to this page. To proceed,
-              please login with an account that has access.</p>
-              {% else %}
-              <p>Please login to see this page.</p>
-              {% endif %}
-          {% endif %}
-
-          <form method="post" action="{% url 'login' %}">
+          <form method="post">
           {% csrf_token %}
 
-          <div>
-            <td>{{ form.username.label_tag }}</td><br>
-            <td>{{ form.username }}</td>
-          </div>
-          <div>
-            <td>{{ form.password.label_tag }}</td><br>
-            <td>{{ form.password }}</td>
-          </div>
+          {{ form.as_p }}
 
-          <div>
-            <input class="button-style" type="submit" value="login" />
-            <input type="hidden" name="next" value="{{ next }}" />
-          </div>
+          <button type="submit">Sign up</button>
           </form>
-
-          {# Assumes you setup the password_reset view in your URLconf #}
-          <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
 
           {% endblock %}
         </div>
