@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  web:
+    image: djangoblog
+    build:
+      context: .
+      dockerfile: Docker/blog/Dockerfile
+    volumes:
+      - ./Djangoproject:/code
+    ports:
+      - "80:8000"
+    stop_signal: SIGINT
