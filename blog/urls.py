@@ -1,5 +1,5 @@
 from django.urls import path, include
-from .views import post_list
+from .views import post_list, register
 from . import views
 
 urlpatterns = [
@@ -14,4 +14,5 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls'), name='login'),
     path('accounts/', include('django.contrib.auth.urls'), name='logout'),
     path('accounts/', include('django.contrib.auth.urls'), name='profile'),
+    path('register/', register, name='register'),
 ]

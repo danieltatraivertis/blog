@@ -38,11 +38,11 @@ Released   : 20121029
       </div>
       <div id="menu">
         <ul>
-          <li class="current_page_item"><a href="#" accesskey="1" title="">Homepage</a></li>
+          <li class="current_page_item"><a href="{% url 'index' %}" accesskey="1" title="">Homepage</a></li>
           <!-- <li><a href="#" accesskey="2" title="">Our Clients</a></li> -->
           <li><a href="https://vertis.com/en/page/get-to-know-us" accesskey="2" title="">About Us</a></li>
-          <li><a href="https://vertis.com/en/page/join-us" accesskey="3" title="">Careers</a></li>
-          <li><a href="https://vertis.com/en/page/contact-us" accesskey="4" title="">Contact Us</a></li>
+          <!-- <li><a href="https://vertis.com/en/page/contact-us" accesskey="4" title="">Contact Us</a></li> -->
+          <li><a href="{% url 'register' %}" accesskey="3" title="">Register</a></li>
         </ul>
         <div id="toolbar">
           <p style="float:right">&nbsp;&nbsp;||&nbsp;&nbsp;{{ request.user }}</p>
