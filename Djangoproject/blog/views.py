@@ -6,12 +6,14 @@ from django.contrib.auth import get_user_model
 from django.http import HttpResponseRedirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login, authenticate
+from rest_framework import viewsets
+from .serializers import PostSerializer, CommentSerializer
 
 
 # Create your views here.
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now())
-    posts = posts.order_by('published_date')
+    posts = posts.order_by('-published_date')
     comments = Comment.objects.order_by('created_date')
     return render(
         request,
@@ -63,3 +65,14 @@ def register(request):
     else:
         form = UserCreationForm()
     return render(request, 'registration/register.html', {'form': form})
+
+
+class PostViewSet(viewsets.ModelViewSet):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+
+
+class CommentViewSet(viewsets.ModelViewSet):
+    queryset = Comment.objects.all()
+    serializer_class = CommentSerializer
+    filter_fields = ('post',)
