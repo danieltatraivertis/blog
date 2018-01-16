@@ -92,11 +92,13 @@ Released   : 20121029
             </div>
           {% endif %}
         {% endfor %}
+        {% if  request.user.is_authenticated %}
         <form class=comment action="{% url 'postnewcomment' post.id %}" method="post">
           {% csrf_token %}
           {{ form }}
           <input class="button-style" type="submit" value="SEND">
         </form>
+        {% endif %}
       </div>
     </div>
   </div>
@@ -136,7 +138,7 @@ Released   : 20121029
   </div>
   <div id="footer-wrapper">
     <div id="footer-content">
-    
+
     <span class="font-medium">LET'S DISCUSS YOUR TRADING NEEDS!</span>
     <br>
     <a href="tel:+3614891900">+36 1 489 1900</a>

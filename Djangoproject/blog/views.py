@@ -8,6 +8,9 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login, authenticate
 from rest_framework import viewsets
 from .serializers import PostSerializer, CommentSerializer
+from rest_framework.permissions import DjangoModelPermissionsOrAnonReadOnly
+from rest_framework.response import Response
+from rest_framework.status import HTTP_403_FORBIDDEN
 
 
 # Create your views here.
@@ -70,9 +73,19 @@ def register(request):
 class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
+    permission_classes = (DjangoModelPermissionsOrAnonReadOnly,)
 
 
 class CommentViewSet(viewsets.ModelViewSet):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
     filter_fields = ('post',)
+
+    def destroy(self, request, *args, **kwargs):
+        if (
+            request.user == self.get_object().author or
+            request.user.is_superuser
+        ):
+            return super(CommentViewSet, self).destroy(
+                request, *args, **kwargs)
+        return Response("Forbidden", status=HTTP_403_FORBIDDEN)
