@@ -1,15 +1,31 @@
 version: '3'
 
 services:
-  web:
+  django:
     environment:
       - PYTHONUNBUFFERED=true
-    image: djangoblog
+    image: blog-django
     build:
       context: .
-      dockerfile: Docker/blog/Dockerfile
+      dockerfile: Docker/django/Dockerfile
     volumes:
       - ./Djangoproject:/code
-    ports:
-      - "80:8000"
     stop_signal: SIGINT
+
+  nginx:
+    image: blog-nginx
+    build:
+      context: .
+      dockerfile: Docker/nginx/Dockerfile
+    volumes:
+      - ./Djangoproject:/code
+      - ./Docker/nginx/nginx.conf:/tmp/nginx.conf
+      - ./Docker/nginx/nginx_uwsgi.conf:/tmp/nginx_uwsgi.conf
+      - ./Docker/nginx/nginx_mime.types:/nginx_mime.types
+      - ./Docker/nginx/nginx_uwsgi_params:/nginx_uwsgi_params
+      - ./Docker/nginx/entrypoint.sh:/entrypoint.sh
+    ports:
+      - "80:80"
+    command: ['nginx']
+    entrypoint: ['/entrypoint.sh']
+    env_file: .env
