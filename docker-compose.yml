@@ -14,6 +14,7 @@ services:
       dockerfile: Docker/django/Dockerfile
     volumes:
       - ./Djangoproject:/code
+      - "data:/data"
     stop_signal: SIGINT
     env_file: .env
 
@@ -29,6 +30,7 @@ services:
       - ./Docker/nginx/nginx_mime.types:/nginx_mime.types
       - ./Docker/nginx/nginx_uwsgi_params:/nginx_uwsgi_params
       - ./Docker/nginx/entrypoint.sh:/entrypoint.sh
+      - "data:/data"
     ports:
       - "80:80"
     command: ['nginx']

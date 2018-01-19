@@ -146,8 +146,10 @@ STATIC_ROOT = os.path.join(
     os.path.dirname(BASE_DIR), "code", "deployment", "collected_static")
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(
-    os.path.dirname(BASE_DIR), "code", "deployment", "media")
+MEDIA_ROOT = '/data/'
+
+# MEDIA_ROOT = os.path.join(
+#     os.path.dirname(BASE_DIR), "code", "deployment", "media")
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
