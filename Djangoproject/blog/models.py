@@ -8,7 +8,7 @@ class Post(models.Model):
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE,)
     title = models.CharField(max_length=200)
     picture = models.ImageField(
-        upload_to="blog/static/picture",
+        upload_to="",
         help_text="The image picture of lab member",
         blank=True
     )

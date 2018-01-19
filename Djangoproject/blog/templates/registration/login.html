@@ -32,7 +32,7 @@ Released   : 20121029
     <div id="header">
       <div id="logo">
         <div id="vertis-logo">
-          <img src="{% static 'picture/header-logo-white.png' %}" alt="Vertis logo">
+          <img src="{% static 'images/header-logo-white.png' %}" alt="Vertis logo">
         </div>
         <h1><a href="{% url 'index' %}">IT blog</a></h1>
       <!-- <p>Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a></p> -->
@@ -40,10 +40,10 @@ Released   : 20121029
       <div id="menu">
         <ul>
           <li><a href="{% url 'index' %}" accesskey="1" title="">Homepage</a></li>
-          <!-- <li><a href="#" accesskey="2" title="">Our Clients</a></li> -->
           <li><a href="https://vertis.com/en/page/get-to-know-us" accesskey="2" title="">About Us</a></li>
-          <!-- <li><a href="https://vertis.com/en/page/contact-us" accesskey="4" title="">Contact Us</a></li> -->
           <li><a href="{% url 'register' %}" accesskey="3" title="">Register</a></li>
+          <li><a href="/api/" accesskey="4" title="">API</a></li>
+          <li><a href="/admin/" accesskey="5" title="">Admin page</a></li>
         </ul>
         <div id="toolbar">
           <p style="float:right">&nbsp;&nbsp;||&nbsp;&nbsp;{{ request.user }}</p>
@@ -100,3 +100,8 @@ Released   : 20121029
       </div>
     </div>
   </div>
+  <div id="footer">
+    <p>2018 &copy; Vertis Environmental Finance All rights reserved. Origin design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.</p>
+  </div>
+</body>
+</html>

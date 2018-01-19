@@ -1,5 +1,9 @@
 version: '3'
 
+volumes:
+  data:
+    driver: local
+
 services:
   django:
     environment:
@@ -11,6 +15,7 @@ services:
     volumes:
       - ./Djangoproject:/code
     stop_signal: SIGINT
+    env_file: .env
 
   nginx:
     image: blog-nginx
@@ -29,3 +34,9 @@ services:
     command: ['nginx']
     entrypoint: ['/entrypoint.sh']
     env_file: .env
+
+  postgres:
+    image: blog-postgres
+    build:
+      context: .
+      dockerfile: Docker/postgres/Dockerfile

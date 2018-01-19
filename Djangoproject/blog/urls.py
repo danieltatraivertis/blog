@@ -2,6 +2,9 @@ from django.urls import path, include
 from .views import post_list, register
 from . import views
 from rest_framework import routers
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 router = routers.DefaultRouter()
 router.register('post', views.PostViewSet)
@@ -16,9 +19,14 @@ urlpatterns = [
         views.post_new_comment,
         name='postnewcomment'
         ),
-    path('accounts/', include('django.contrib.auth.urls'), name='login'),
-    path('accounts/', include('django.contrib.auth.urls'), name='logout'),
-    path('accounts/', include('django.contrib.auth.urls'), name='profile'),
+    path('accounts/', include('django.contrib.auth.urls')),
     path('register/', register, name='register'),
     path('api/', include(router.urls)),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns = [
+        path('__debug__/', include(debug_toolbar.urls)),
+    ] + urlpatterns

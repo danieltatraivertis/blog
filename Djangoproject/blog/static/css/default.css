@@ -8,7 +8,7 @@ Released for free under the Creative Commons Attribution License
 body {
   margin: 50px 0px 0px 0px;
   padding: 0;
-  background: #E6E6E6 url("/blog/static/images/main-bg.jpg") repeat;
+  background: #E6E6E6 url("/blog/deployment/collected_static/images/main-bg.jpg") repeat;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
   color: #8F8F8F;
@@ -130,7 +130,7 @@ hr {
 
 #toolbar {
   float: right;
-  padding: 40px 40px 0px 0px;
+  padding: 43px 40px 0px 0px;
   width: 200px;
   height: 80px;
   display: block;
