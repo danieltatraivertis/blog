@@ -1,7 +1,10 @@
 version: '3'
 
 volumes:
-  data:
+  mediadata:
+    driver: local
+
+  db:
     driver: local
 
 services:
@@ -14,9 +17,10 @@ services:
       dockerfile: Docker/django/Dockerfile
     volumes:
       - ./Djangoproject:/code
-      - "data:/data"
+      - "mediadata:/mediadata"
     stop_signal: SIGINT
     env_file: .env
+    # entrypoint: ['/entrypoint.sh']
 
   nginx:
     image: blog-nginx
@@ -30,7 +34,7 @@ services:
       - ./Docker/nginx/nginx_mime.types:/nginx_mime.types
       - ./Docker/nginx/nginx_uwsgi_params:/nginx_uwsgi_params
       - ./Docker/nginx/entrypoint.sh:/entrypoint.sh
-      - "data:/data"
+      - "mediadata:/mediadata"
     ports:
       - "80:80"
     command: ['nginx']
@@ -42,3 +46,12 @@ services:
     build:
       context: .
       dockerfile: Docker/postgres/Dockerfile
+    volumes:
+      - ./Djangoproject:/code
+      - "db:/db"
+      - ./Docker/postgres/entrypoint.sh:/entrypoint.sh
+      - ./Docker/postgres/postgresql.conf:/postgresql.conf
+      - ./Docker/postgres/pg_hba.conf:/pg_hba.conf
+    ports:
+      - "5432:5432"
+    entrypoint: ['/entrypoint.sh']

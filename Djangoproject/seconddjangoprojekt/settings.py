@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_filters',
     'debug_toolbar',
+    'django.contrib.postgres',
 ]
 
 MIDDLEWARE = [
@@ -103,26 +104,26 @@ WSGI_APPLICATION = 'seconddjangoprojekt.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'HOST': 'postgres',
-#         'PORT': '5432',
-#         'NAME': 'itblog',
-#         'USER': 'django',
-#         'PASSWORD': 'django',
-#         'OPTIONS': {
-#             'sslmode': 'disable',
-#             }
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'HOST': 'postgres',
+        'PORT': '5432',
+        'NAME': 'itblog',
+        'USER': 'django',
+        'PASSWORD': 'django',
+        'OPTIONS': {
+            'sslmode': 'disable',
+            }
+    }
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
@@ -146,7 +147,7 @@ STATIC_ROOT = os.path.join(
     os.path.dirname(BASE_DIR), "code", "deployment", "collected_static")
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = '/data/'
+MEDIA_ROOT = '/mediadata'
 
 # MEDIA_ROOT = os.path.join(
 #     os.path.dirname(BASE_DIR), "code", "deployment", "media")

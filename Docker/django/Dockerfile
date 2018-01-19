@@ -7,7 +7,8 @@ RUN pip install \
   django-ckeditor==5.4.0 \
   djangorestframework==3.7.7 \
   django-filter==2.0.0.dev1 \
-  django-debug-toolbar==1.9
+  django-debug-toolbar==1.9 \
+  psycopg2==2.7.3.2
 
 COPY ./Djangoproject /code
 WORKDIR /code
