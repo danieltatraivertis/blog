@@ -20,7 +20,7 @@ services:
       - "mediadata:/mediadata"
     stop_signal: SIGINT
     env_file: .env
-    # entrypoint: ['/entrypoint.sh']
+    entrypoint: ['/entrypoint.sh']
 
   nginx:
     image: blog-nginx

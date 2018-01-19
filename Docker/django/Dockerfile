@@ -8,8 +8,9 @@ RUN pip install \
   djangorestframework==3.7.7 \
   django-filter==2.0.0.dev1 \
   django-debug-toolbar==1.9 \
-  psycopg2==2.7.3.2
+  psycopg2==2.7.3.2 \
+  uwsgi==2.0.15
 
 COPY ./Djangoproject /code
 WORKDIR /code
-CMD ["python3", "manage.py", "runserver", "0.0.0.0:8000"]
+# CMD ["python3", "manage.py", "runserver", "0.0.0.0:8000"]
