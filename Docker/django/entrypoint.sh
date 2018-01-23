@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
 
-sleep 3
-exec uwsgi --ini /uwsgi.conf
+# exec su-exec django uwsgi --ini /uwsgi.conf
+uwsgi --ini /uwsgi.conf
 exec "$@"

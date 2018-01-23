@@ -11,6 +11,6 @@ RUN pip install \
   psycopg2==2.7.3.2 \
   uwsgi==2.0.15
 
-COPY ./Djangoproject /code
-WORKDIR /code
+# COPY ./Djangoproject /code
+# WORKDIR /code
 # CMD ["python3", "manage.py", "runserver", "0.0.0.0:8000"]
