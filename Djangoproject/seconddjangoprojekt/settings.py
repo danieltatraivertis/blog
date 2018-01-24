@@ -11,16 +11,17 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+from decouple import config
 # from .permissions import IsAdminOrReadOnly
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-print("base dir path", BASE_DIR)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '!7@lg_5@ynz(0(&r)1j=n0a9ekn7hk^z=75dc91!x3$mlss4c-'
+
+SECRET_KEY = config('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'True') == 'True'
@@ -118,7 +119,7 @@ DATABASES = {
         'PORT': '5432',
         'NAME': 'itblog',
         'USER': 'django',
-        'PASSWORD': 'django',
+        'PASSWORD': config('DB_PASSWORD'),
         'OPTIONS': {
             'sslmode': 'disable',
             }

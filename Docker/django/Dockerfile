@@ -9,8 +9,8 @@ RUN pip install \
   django-filter==2.0.0.dev1 \
   django-debug-toolbar==1.9 \
   psycopg2==2.7.3.2 \
-  uwsgi==2.0.15
-
+  uwsgi==2.0.15 \
+  python-decouple==3.1
 # COPY ./Djangoproject /code
 # WORKDIR /code
 # CMD ["python3", "manage.py", "runserver", "0.0.0.0:8000"]

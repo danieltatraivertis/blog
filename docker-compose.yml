@@ -60,4 +60,5 @@ services:
       - ./Docker/postgres/pg_hba.conf:/pg_hba.conf
     ports:
       - "5432:5432"
+    env_file: .env
     entrypoint: ['/entrypoint.sh']
