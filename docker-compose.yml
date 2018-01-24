@@ -7,6 +7,9 @@ volumes:
   db:
     driver: local
 
+  uwsgisocket:
+    driver: local
+
 services:
   django:
     environment:
@@ -17,7 +20,10 @@ services:
       dockerfile: Docker/django/Dockerfile
     volumes:
       - ./Djangoproject:/code
+      - ./Docker/django/uwsgi.conf:/uwsgi.conf
+      - ./Docker/django/entrypoint.sh:/entrypoint.sh
       - "mediadata:/mediadata"
+      - "uwsgisocket:/uwsgisocket"
     stop_signal: SIGINT
     env_file: .env
     entrypoint: ['/entrypoint.sh']
@@ -35,8 +41,9 @@ services:
       - ./Docker/nginx/nginx_uwsgi_params:/nginx_uwsgi_params
       - ./Docker/nginx/entrypoint.sh:/entrypoint.sh
       - "mediadata:/mediadata"
+      - "uwsgisocket:/uwsgisocket"
     ports:
-      - "80:80"
+      - "8000:80"
     command: ['nginx']
     entrypoint: ['/entrypoint.sh']
     env_file: .env
@@ -47,7 +54,6 @@ services:
       context: .
       dockerfile: Docker/postgres/Dockerfile
     volumes:
-      - ./Djangoproject:/code
       - "db:/db"
       - ./Docker/postgres/entrypoint.sh:/entrypoint.sh
       - ./Docker/postgres/postgresql.conf:/postgresql.conf
