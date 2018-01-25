@@ -1,5 +1,5 @@
 django==2.0.1
-Pillow==5.0.0
+pillow==5.0.0
 django_admin_timeline==1.6.2
 django-ckeditor==5.4.0
 djangorestframework==3.7.7
