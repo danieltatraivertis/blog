@@ -9,5 +9,10 @@ class PostAdmin(admin.ModelAdmin):
     list_filter = ['published_date']
 
 
+# Only for test autocomplete_fields, deletable
+class CommentAdmin(admin.ModelAdmin):
+    autocomplete_fields = ['post']
+
+
 admin.site.register(Post, PostAdmin)
-admin.site.register(Comment)
+admin.site.register(Comment, CommentAdmin)
