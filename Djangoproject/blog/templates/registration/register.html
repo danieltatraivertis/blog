@@ -1,82 +1,17 @@
+{% extends 'blog/base.html' %}
 {% block content %}
-{% load staticfiles %}
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<!--
-Design by TEMPLATED
-http://templated.co
-Released for free under the Creative Commons Attribution License
-
-Name       : Ministerial
-Description: A two-column, fixed-width design with dark color scheme.
-Version    : 1.0
-Released   : 20121029
-
--->
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta name="keywords" content="" />
-<meta name="description" content="" />
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>Vertis IT blog registration</title>
-<link href='http://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css' />
-<link href='http://fonts.googleapis.com/css?family=Abel|Satisfy' rel='stylesheet' type='text/css' />
-<link href="{% static 'css/default.css' %}" rel="stylesheet" type="text/css" media="all" />
-<link rel="shortcut icon" href="{% static 'images/favicon.ico' %}"/>
-<!--[if IE 6]>
-<link href="default_ie6.css" rel="stylesheet" type="text/css" />
-<![endif]-->
-</head>
-<body>
-<div id="wrapper">
-  <div id="header-wrapper">
-    <div id="header">
-      <div id="logo">
-        <div id="vertis-logo">
-          <img src="{% static 'images/header-logo-white.png' %}" alt="Vertis logo">
-        </div>
-        <h1><a href="{% url 'index' %}">IT blog</a></h1>
-      <!-- <p>Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a></p> -->
-      </div>
-      <div id="menu">
-        <ul>
-          <li><a href="{% url 'index' %}" accesskey="1" title="">Homepage</a></li>
-          <li><a href="https://vertis.com/en/page/get-to-know-us" accesskey="2" title="">About Us</a></li>
-          <li class="current_page_item"><a href="{% url 'register' %}" accesskey="3" title="">Register</a></li>
-          <li><a href="/api/" accesskey="4" title="">API</a></li>
-          <li><a href="/admin/" accesskey="5" title="">Admin page</a></li>
-        </ul>
-        <div id="toolbar">
-          <p style="float:right">&nbsp;&nbsp;||&nbsp;&nbsp;{{ request.user }}</p>
-          {% if  request.user.is_authenticated %}
-            <a style="float:right" href="{% url 'logout' %}">Logout</a>
-          {% else %}
-            <a style="float:right" href="{% url 'login' %}">Login</a>
-          {% endif %}
-        </div>
-      </div>
-    </div>
-  </div>
   <div class="page-wrapper">
     <div class="page">
       <div class="wide-content">
         <div class=login-box>
           <h2>Please register!</h2>
-
           <form method="post">
           {% csrf_token %}
-
           {{ form.as_p }}
-
           <button type="submit">Sign up</button>
           </form>
-
-          {% endblock %}
         </div>
       </div>
     </div>
   </div>
-  <div id="footer">
-    <p>2018 &copy; Vertis Environmental Finance All rights reserved. Origin design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.</p>
-  </div>
-</body>
-</html>
+{% endblock %}

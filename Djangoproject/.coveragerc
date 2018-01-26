@@ -1,0 +1,17 @@
+[run]
+branch = True
+omit = *migrations*
+       *test*
+       *django*
+       *dist-packages*
+       *wsgi*
+       *factories*
+
+[report]
+exclude_lines =
+    pragma: no cover
+    if __name__ ==
+
+
+[html]
+directory = /code/deployment/collected_static/coverage_report/

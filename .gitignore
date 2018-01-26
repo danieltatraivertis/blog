@@ -7,3 +7,5 @@ myvenv
 ./Djangoproject/static
 deployment
 db*
+coverage_report
+.coverage

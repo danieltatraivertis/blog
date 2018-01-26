@@ -41,7 +41,6 @@ def post_new_comment(request, post_id):
             return HttpResponseRedirect("/accounts/login/")
 
         form = CommentForm(request.POST)
-        print(request.user)
         if form.is_valid():
             author = get_user_model().objects.get(username=request.user)
             post = Post.objects.get(pk=post_id)

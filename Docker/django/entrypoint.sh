@@ -1,6 +1,11 @@
 #!/bin/bash
 set -e
 
-# exec su-exec django uwsgi --ini /uwsgi.conf
-uwsgi --ini /uwsgi.conf
+if [ $UWSGI = True ]; then
+  uwsgi --ini /uwsgi.conf
+else
+  cd /code
+  python manage.py runserver 0:8000
+fi
+
 exec "$@"
