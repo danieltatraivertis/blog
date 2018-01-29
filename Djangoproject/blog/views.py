@@ -49,8 +49,6 @@ def post_new_comment(request, post_id):
                 content=form.cleaned_data.pop("new_comment"),
                 post=post
             )
-        else:
-            return HttpResponseRedirect("/")
     return HttpResponseRedirect('/')
 
 

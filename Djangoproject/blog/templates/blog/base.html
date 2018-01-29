@@ -34,14 +34,14 @@ Released   : 20121029
         <div id="header">
           <div id="logo">
             <div id="vertis-logo">
-              <img src="{% static 'images/header-logo-white.png' %}" alt="Vertis logo">
+              <img src="{% static 'images/header-logo-white.png' %}" alt="Vertis logo"/>
             </div>
             <h1><a href="{% url 'index' %}">IT blog</a></h1>
           </div>
           <div id="menu">
             <ul>
-              <li class="current_page_item"><a href="{% url 'index' %}" accesskey="1" title="">Homepage</a></li>
-              <!-- <li><a href="https://vertis.com/en/page/get-to-know-us" accesskey="2" title="">About Us</a></li> -->
+              <li><a href="{% url 'index' %}" accesskey="1" title="">Homepage</a></li>
+              <!-- <li class="current_page_item"><a href="https://vertis.com/en/page/get-to-know-us" accesskey="2" title="">About Us</a></li> -->
               <li><a href="{% static 'coverage_report' %}" accesskey="2" title="">Coverage</a></li>
               <li><a href="{% url 'register' %}" accesskey="3" title="">Register</a></li>
               <li><a href="/api/" accesskey="4" title="">API</a></li>
@@ -96,10 +96,10 @@ Released   : 20121029
         <span class="font-medium">LET'S DISCUSS YOUR TRADING NEEDS!</span>
         </br>
         <a href="tel:+3614891900">+36 1 489 1900</a>
-        </br>
+        <br/>
         <a href="mailto:trading@vertis.com">trading@vertis.com</a>
-        </br>
-        <img id="footer-image" src="{% static 'images/footer-logos-new2.png' %}">
+        <br/>
+        <img id="footer-image" src="{% static 'images/footer-logos-new2.png' %}"/>
       </div>
     </div>
     </div>
