@@ -128,28 +128,20 @@ hr {
   color: #5F5950;
 }
 
-#toolbar {
-  float: right;
-  padding: 43px 40px 0px 0px;
-  width: 200px;
-  height: 80px;
-  display: block;
-}
-
 /* Menu */
 
 #menu {
   float: left;
   width: 810px;
   height: 80px;
-  padding: 20px 40px 0px 0px;
+  padding: 0px 0px 0px 0px;
 
 }
 
 #menu ul {
   float: left;
   margin: 0;
-  padding: 40px 0px 0px 40px;
+  padding: 0px 0px 0px 0px;
   list-style: none;
   line-height: normal;
 }
@@ -172,6 +164,14 @@ hr {
   color: #757575;
 }
 
+#toolbar {
+  float: right;
+  padding: 20px 20px 0px 10px;
+  width: 810px;
+  height: 40px;
+  display: block;
+}
+
 #toolbar a {
   display: block;
   letter-spacing: 1px;
@@ -182,6 +182,10 @@ hr {
   font-weight: 300;
   color: #757575;
   padding: 2px 0px 0px 0px;
+}
+
+#toolbar img {
+  padding:0px 10px 0px 0px;
 }
 
 #toolbar p {

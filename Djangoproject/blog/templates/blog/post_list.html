@@ -1,4 +1,5 @@
 {% extends 'blog/base.html' %}
+{% load i18n %}
 {% block content %}
   {% for post in posts %}
   <div class="banner">
@@ -8,17 +9,17 @@
     <div class="page">
       <div class="wide-content">
         <div>
-          <tr><td><p class="published">published: {{ post.published_date }}</p></td></tr>
+          <tr><td><p class="published">{% trans 'published' %}: {{ post.published_date }}</p></td></tr>
           <h2>{{ post.title }}</h2>
           <p class="post-text">{{ post.text|safe }} </p>
-          <p class="button-style"><a href="{% url 'detail' post.id %}">More Details</a></p>
+          <p class="button-style"><a href="{% url 'detail' post.id %}">{% trans 'More Details' %}</a></p>
         </div>
         {% for comment in comments %}
           {% if comment.post.title == post.title %}
             <div class="comment">
               <tr><td><p class="comment-author">{{ comment.author }}</p></td></tr>
               <tr><td><p class="comment-content">{{ comment.content|linebreaksbr }}</p></td></tr>
-              <tr><td><p class="comment-published">last edited: {{ comment.last_updated }}</p></td></tr>
+              <tr><td><p class="comment-published">{% trans 'last edited' %}: {{ comment.last_updated }}</p></td></tr>
             </div>
           {% endif %}
         {% endfor %}
@@ -26,7 +27,7 @@
           <form class=comment action="{% url 'postnewcomment' post.id %}" method="post"/>
           {% csrf_token %}
           {{ form }}
-          <input class="button-style" type="submit" value="SEND"/>
+          <input class="button-style" type="submit" value="{% trans 'SEND' %}" />
           </form>
         {% endif %}
       </div>

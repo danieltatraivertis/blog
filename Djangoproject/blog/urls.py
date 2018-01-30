@@ -1,5 +1,4 @@
 from django.urls import path, include
-from .views import post_list, register
 from . import views
 from rest_framework import routers
 from django.conf import settings
@@ -11,7 +10,8 @@ router.register('post', views.PostViewSet)
 router.register('comment', views.CommentViewSet)
 
 urlpatterns = [
-    path('', post_list, name='index'),
+    path('<str:lang>/set_lang/', views.set_lang, name='set_lang'),
+    path('', views.post_list, name='index'),
     # ex: /polls/5/
     path('<int:post_id>/', views.post_detail, name='detail'),
     path(
@@ -20,7 +20,7 @@ urlpatterns = [
         name='postnewcomment'
         ),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('register/', register, name='register'),
+    path('register/', views.register, name='register'),
     path('api/', include(router.urls)),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

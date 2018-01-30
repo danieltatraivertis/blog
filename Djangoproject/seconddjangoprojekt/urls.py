@@ -16,8 +16,10 @@ Including another URLconf
 from django.urls import include, path
 from django.contrib import admin
 
+
 urlpatterns = [
     path('', include('blog.urls')),
     path('admin/', admin.site.urls),
     path('admin/timeline/', include('admin_timeline.urls')),
+    path('rosetta/', include('rosetta.urls')),
 ]

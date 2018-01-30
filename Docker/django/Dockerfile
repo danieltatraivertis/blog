@@ -11,7 +11,10 @@ RUN pip install \
   psycopg2==2.7.3.2 \
   uwsgi==2.0.15 \
   python-decouple==3.1 \
-  coverage==4.4.2
+  coverage==4.4.2 \
+  django-rosetta==v0.8.1
+RUN apt update
+RUN apt install -y gettext
 # COPY ./Djangoproject /code
 # WORKDIR /code
 # CMD ["python3", "manage.py", "runserver", "0.0.0.0:8000"]

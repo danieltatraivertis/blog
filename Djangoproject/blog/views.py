@@ -11,6 +11,8 @@ from .serializers import PostSerializer, CommentSerializer
 from rest_framework.permissions import DjangoModelPermissionsOrAnonReadOnly
 from rest_framework.response import Response
 from rest_framework.status import HTTP_403_FORBIDDEN
+from django.utils.translation import LANGUAGE_SESSION_KEY
+from django.utils import translation
 
 
 # Create your views here.
@@ -65,6 +67,13 @@ def register(request):
     else:
         form = UserCreationForm()
     return render(request, 'registration/register.html', {'form': form})
+
+
+def set_lang(request, lang):
+    user_language = lang
+    translation.activate(user_language)
+    request.session[translation.LANGUAGE_SESSION_KEY] = user_language
+    return HttpResponseRedirect('/')
 
 
 class PostViewSet(viewsets.ModelViewSet):
