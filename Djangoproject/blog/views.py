@@ -4,7 +4,7 @@ from .models import Post, Comment
 from .forms import CommentForm
 from django.contrib.auth import get_user_model
 from django.http import HttpResponseRedirect
-from django.contrib.auth.forms import UserCreationForm
+from .forms import SignUpForm
 from django.contrib.auth import login, authenticate
 from rest_framework import viewsets
 from .serializers import PostSerializer, CommentSerializer
@@ -56,7 +56,7 @@ def post_new_comment(request, post_id):
 
 def register(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = SignUpForm(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
@@ -65,7 +65,7 @@ def register(request):
             login(request, user)
             return HttpResponseRedirect('/')
     else:
-        form = UserCreationForm()
+        form = SignUpForm()
     return render(request, 'registration/register.html', {'form': form})
 
 
