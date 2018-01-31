@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'rosetta',
     'ckeditor',
     'admin_timeline',
+    'captcha',
     'django.contrib.admin',
 ]
 

@@ -2,6 +2,7 @@ from django import forms
 from .models import Comment
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from captcha.fields import CaptchaField
 
 
 class CommentForm(forms.Form):
@@ -33,6 +34,7 @@ class SignUpForm(UserCreationForm):
         max_length=254,
         help_text='Required. Inform a valid email address.'
         )
+    captcha = CaptchaField()
 
     class Meta:
         model = User

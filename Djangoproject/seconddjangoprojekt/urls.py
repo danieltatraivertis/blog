@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('admin/timeline/', include('admin_timeline.urls')),
     path('rosetta/', include('rosetta.urls')),
+    path('captcha/', include('captcha.urls')),
 ]

@@ -12,7 +12,8 @@ RUN pip install \
   uwsgi==2.0.15 \
   python-decouple==3.1 \
   coverage==4.4.2 \
-  django-rosetta==v0.8.1
+  django-rosetta==v0.8.1 \
+  django-simple-captcha==0.5.6
 RUN apt update
 RUN apt install -y gettext
 # COPY ./Djangoproject /code
