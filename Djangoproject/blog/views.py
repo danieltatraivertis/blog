@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.utils import timezone
 from .models import Post, Comment
 from .forms import CommentForm
@@ -13,6 +13,15 @@ from rest_framework.response import Response
 from rest_framework.status import HTTP_403_FORBIDDEN
 from django.utils.translation import LANGUAGE_SESSION_KEY
 from django.utils import translation
+from django.contrib.sites.shortcuts import get_current_site
+from django.utils.encoding import force_bytes
+from django.utils.http import urlsafe_base64_encode
+from django.template.loader import render_to_string
+from .tokens import account_activation_token
+from django.utils.encoding import force_text
+from django.utils.http import urlsafe_base64_decode
+from django.contrib.auth.models import User
+from django.core.mail import send_mail
 
 
 # Create your views here.
@@ -58,15 +67,31 @@ def register(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=raw_password)
-            login(request, user)
-            return HttpResponseRedirect('/')
+            user = form.save(commit=False)
+            user.is_active = False
+            user.save()
+            current_site = get_current_site(request)
+            subject = 'Activate Your MySite Account'
+            message = render_to_string('registration/account_activation_email.html', {
+                'user': user,
+                'domain': current_site.domain,
+                'uid': urlsafe_base64_encode(force_bytes(user.pk)).decode(),
+                'token': account_activation_token.make_token(user),
+            })
+            send_mail(subject, message, 'bot@vertis.com', [user.email])
+            return redirect('account_activation_sent')
     else:
         form = SignUpForm()
     return render(request, 'registration/register.html', {'form': form})
+
+    #         username = form.cleaned_data.get('username')
+    #         raw_password = form.cleaned_data.get('password1')
+    #         user = authenticate(username=username, password=raw_password)
+    #         login(request, user)
+    #         return HttpResponseRedirect('/')
+    # else:
+    #     form = SignUpForm()
+    # return render(request, 'registration/register.html', {'form': form})
 
 
 def set_lang(request, lang):
@@ -74,6 +99,33 @@ def set_lang(request, lang):
     translation.activate(user_language)
     request.session[translation.LANGUAGE_SESSION_KEY] = user_language
     return HttpResponseRedirect('/')
+
+
+def activate(request, uidb64, token):
+    print('----------------------------------------')
+    print(uidb64)
+    print(token)
+    try:
+        uid = force_text(urlsafe_base64_decode(uidb64))
+        user = User.objects.get(pk=uid)
+    except (TypeError, ValueError, OverflowError, User.DoesNotExist):
+        user = None
+    if user is not None and account_activation_token.check_token(user, token):
+        user.is_active = True
+        user.profile.email_confirmed = True
+        user.save()
+        login(request, user)
+        return redirect('index')
+    else:
+        return redirect('account_activation_invalid')
+
+
+def account_activation_sent(request):
+    return render(request, 'registration/account_activation_sent.html')
+
+
+def account_activation_invalid(request):
+    return render(request, 'registration/account_activation_invalid.html')
 
 
 class PostViewSet(viewsets.ModelViewSet):
