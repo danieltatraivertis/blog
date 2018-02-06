@@ -56,18 +56,16 @@ Released   : 20121029
           <div id="menu">
             <ul>
               <li><a href="{% url 'index' %}" accesskey="1" title="">{% trans 'Homepage' %}</a></li>
-              <!-- <li class="current_page_item"><a href="https://vertis.com/en/page/get-to-know-us" accesskey="2" title="">About Us</a></li> -->
               <li><a href="{% static 'coverage_report' %}" accesskey="2" title="">Coverage</a></li>
               <li><a href="{% url 'register' %}" accesskey="3" title="">{% trans 'Register' %}</a></li>
               <li><a href="/api/" accesskey="4" title="">API</a></li>
-              <li><a href="admin/" accesskey="5" title="">{% trans 'Admin' %}</a></li>
-              <li><a href="/rosetta/" accesskey="5" title="">Rosetta</a></li>
+              <li><a href="/admin/" accesskey="5" title="">{% trans 'Admin' %}</a></li>
+              <li><a href="/rosetta/" accesskey="6" title="">Rosetta</a></li>
+              <li><a href="/explorer/" accesskey="7" title="">Explorer</a></li>
             </ul>
           </div>
-
         </div>
       </div>
-
 
     {% block content %}
     {% endblock %}

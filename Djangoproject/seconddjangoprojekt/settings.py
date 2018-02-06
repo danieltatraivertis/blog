@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'admin_timeline',
     'captcha',
+    'explorer',
     'django.contrib.admin',
 ]
 
@@ -130,8 +131,22 @@ DATABASES = {
         'OPTIONS': {
             'sslmode': 'disable',
             }
+    },
+    'explorer': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'HOST': 'postgres',
+        'PORT': '5432',
+        'NAME': 'itblog',
+        'USER': 'explorer',
+        'PASSWORD': config('DB_PASSWORD'),
+        'OPTIONS': {
+            'sslmode': 'disable',
+            }
     }
 }
+
+EXPLORER_DEFAULT_CONNECTION = 'explorer'
+EXPLORER_CONNECTIONS = {'Default': 'explorer'}
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/

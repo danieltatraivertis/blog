@@ -1,7 +1,7 @@
 FROM python:3.6.4
 
 RUN pip install \
-  django==2.0.1 \
+  django==2.0.2 \
   Pillow==5.0.0 \
   django_admin_timeline==1.6.2 \
   django-ckeditor==5.4.0 \
@@ -11,11 +11,12 @@ RUN pip install \
   psycopg2==2.7.3.2 \
   uwsgi==2.0.15 \
   python-decouple==3.1 \
-  coverage==4.4.2 \
+  coverage==4.5 \
   django-rosetta==v0.8.1 \
   django-simple-captcha==0.5.6
 RUN apt update
 RUN apt install -y gettext
+RUN pip install git+https://github.com/groveco/django-sql-explorer.git
 # COPY ./Djangoproject /code
 # WORKDIR /code
 # CMD ["python3", "manage.py", "runserver", "0.0.0.0:8000"]

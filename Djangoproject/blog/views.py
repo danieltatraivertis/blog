@@ -5,13 +5,12 @@ from .forms import CommentForm
 from django.contrib.auth import get_user_model
 from django.http import HttpResponseRedirect
 from .forms import SignUpForm
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login
 from rest_framework import viewsets
 from .serializers import PostSerializer, CommentSerializer
 from rest_framework.permissions import DjangoModelPermissionsOrAnonReadOnly
 from rest_framework.response import Response
 from rest_framework.status import HTTP_403_FORBIDDEN
-from django.utils.translation import LANGUAGE_SESSION_KEY
 from django.utils import translation
 from django.contrib.sites.shortcuts import get_current_site
 from django.utils.encoding import force_bytes
@@ -102,9 +101,6 @@ def set_lang(request, lang):
 
 
 def activate(request, uidb64, token):
-    print('----------------------------------------')
-    print(uidb64)
-    print(token)
     try:
         uid = force_text(urlsafe_base64_decode(uidb64))
         user = User.objects.get(pk=uid)
