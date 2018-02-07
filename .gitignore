@@ -6,6 +6,5 @@ myvenv
 *.env
 ./Djangoproject/static
 deployment
-db*
 coverage_report
 .coverage

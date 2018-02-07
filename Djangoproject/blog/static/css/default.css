@@ -314,6 +314,7 @@ input[type=button], input[type=submit], input[type=reset] {
     font-weight: 300;
     font-size: 16px;
     color: #FFFFFF;
+    cursor: pointer;
 }
 
 #footer-content{

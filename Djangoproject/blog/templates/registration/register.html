@@ -7,9 +7,9 @@
         <div class=login-box>
           <h2>{% trans 'Please register!' %}</h2>
           <form method="post">
-          {% csrf_token %}
-          {{ form.as_p }}
-          <button type="submit">{% trans 'Sign up' %}</button>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">{% trans 'Sign up' %}</button>
           </form>
         </div>
       </div>

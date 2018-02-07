@@ -15,26 +15,31 @@ services:
     environment:
       - PYTHONUNBUFFERED=true
     image: blog-django
+    depends_on:
+      - postgres
     build:
       context: .
       dockerfile: Docker/django/Dockerfile
     volumes:
-      - ./Djangoproject:/code
+      - ./Djangoproject:/code/
       - ./Docker/django/uwsgi.conf:/uwsgi.conf
       - ./Docker/django/entrypoint.sh:/entrypoint.sh
       - "mediadata:/mediadata"
       - "uwsgisocket:/uwsgisocket"
+      - ./backup/media:/backupmedia/
+      - ./cmd/django/:/cmd/
     stop_signal: SIGINT
     env_file: .env
     entrypoint: ['/entrypoint.sh']
 
   nginx:
     image: blog-nginx
+    depends_on: ["django"]
     build:
       context: .
       dockerfile: Docker/nginx/Dockerfile
     volumes:
-      - ./Djangoproject:/code
+      - ./Djangoproject:/code/
       - ./Docker/nginx/nginx.conf:/tmp/nginx.conf
       - ./Docker/nginx/nginx_uwsgi.conf:/tmp/nginx_uwsgi.conf
       - ./Docker/nginx/nginx_mime.types:/nginx_mime.types
@@ -42,6 +47,7 @@ services:
       - ./Docker/nginx/entrypoint.sh:/entrypoint.sh
       - "mediadata:/mediadata"
       - "uwsgisocket:/uwsgisocket"
+      - ./cmd/nginx/:/cmd/
     ports:
       - "80:80"
     command: ['nginx']
@@ -55,10 +61,17 @@ services:
       dockerfile: Docker/postgres/Dockerfile
     volumes:
       - "db:/db"
+      - ./backup/db:/backupdb/
       - ./Docker/postgres/entrypoint.sh:/entrypoint.sh
       - ./Docker/postgres/postgresql.conf:/postgresql.conf
       - ./Docker/postgres/pg_hba.conf:/pg_hba.conf
+      - ./cmd/postgres/:/cmd/
     ports:
       - "5432:5432"
+    healthcheck:
+        test: ["CMD", "curl", "-f", "http://localhost:5432"]
+        interval: 4s
+        timeout: 2s
+        retries: 30
     env_file: .env
     entrypoint: ['/entrypoint.sh']
