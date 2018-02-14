@@ -8,7 +8,7 @@ RUN pip install \
   djangorestframework==3.7.7 \
   django-filter==2.0.0.dev1 \
   django-debug-toolbar==1.9.1 \
-  psycopg2==2.7.4 \
+  psycopg2-binary==2.7.4 \
   uwsgi==2.0.15 \
   python-decouple==3.1 \
   coverage==4.5 \

@@ -184,7 +184,7 @@ STATIC_ROOT = os.path.join(
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = '/mediadata'
-
+FILE_UPLOAD_PERMISSIONS = 644
 # MEDIA_ROOT = os.path.join(
 #     os.path.dirname(BASE_DIR), "code", "deployment", "media")
 
