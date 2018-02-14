@@ -18,7 +18,7 @@
           {% if comment.post.title == post.title %}
             <div class="comment">
               <tr><td><p class="comment-author">{{ comment.author }}</p></td></tr>
-              <tr><td><p class="comment-content">{{ comment.content|linebreaksbr }}</p></td></tr>
+              <tr><td><p class="comment-content">{{ comment.content|escape }}</p></td></tr>
               <tr><td><p class="comment-published">{% trans 'last edited' %}: {{ comment.last_updated }}</p></td></tr>
             </div>
           {% endif %}

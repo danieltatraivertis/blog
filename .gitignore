@@ -5,6 +5,5 @@ myvenv
 .DS_Store
 *.env
 ./Djangoproject/static
-deployment
 coverage_report
 .coverage

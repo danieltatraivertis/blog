@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     'admin_timeline',
     'captcha',
     'explorer',
+    'django_extensions',
+    'compressor',
     'django.contrib.admin',
 ]
 
@@ -172,12 +174,15 @@ LANGUAGES = (
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
-
+STATICFILES_FINDERS = (
+    'compressor.finders.CompressorFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
 STATIC_URL = '/blog/deployment/collected_static/' if DEBUG else '/blog/deployment/collected_static/'
 STATIC_ROOT = os.path.join(
     os.path.dirname(BASE_DIR), "code", "deployment", "collected_static")
 
-MEDIA_URL = '/media/'
+MEDIA_URL = 'media/'
 MEDIA_ROOT = '/mediadata'
 
 # MEDIA_ROOT = os.path.join(

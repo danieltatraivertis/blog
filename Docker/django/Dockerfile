@@ -8,12 +8,15 @@ RUN pip install \
   djangorestframework==3.7.7 \
   django-filter==2.0.0.dev1 \
   django-debug-toolbar==1.9.1 \
-  psycopg2==2.7.3.2 \
+  psycopg2==2.7.4 \
   uwsgi==2.0.15 \
   python-decouple==3.1 \
   coverage==4.5 \
   django-rosetta==v0.8.1 \
-  django-simple-captcha==0.5.6
+  django-simple-captcha==0.5.6 \
+  django-extensions==1.9.9 \
+  Werkzeug==0.13 \
+  django_compressor==2.2
 RUN apt update
 RUN apt install -y gettext
 RUN pip install git+https://github.com/groveco/django-sql-explorer.git

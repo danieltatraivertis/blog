@@ -68,10 +68,5 @@ services:
       - ./cmd/postgres/:/cmd/
     ports:
       - "5432:5432"
-    healthcheck:
-        test: ["CMD", "curl", "-f", "http://localhost:5432"]
-        interval: 4s
-        timeout: 2s
-        retries: 30
     env_file: .env
     entrypoint: ['/entrypoint.sh']
