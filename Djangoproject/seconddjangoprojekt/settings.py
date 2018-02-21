@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'explorer',
     'django_extensions',
     'compressor',
+    'grappelli',
     'django.contrib.admin',
 ]
 

@@ -18,6 +18,7 @@ from django.contrib import admin
 
 urlpatterns = [
     path('', include('blog.urls')),
+    path('grappelli/', include('grappelli.urls')),
     path('admin/', admin.site.urls),
     path('admin/timeline/', include('admin_timeline.urls')),
     path('rosetta/', include('rosetta.urls')),

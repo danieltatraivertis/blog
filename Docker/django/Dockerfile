@@ -16,7 +16,8 @@ RUN pip install \
   django-simple-captcha==0.5.6 \
   django-extensions==1.9.9 \
   Werkzeug==0.14.1 \
-  django_compressor==2.2
+  django_compressor==2.2 \
+  django-grappelli==2.11.1
 RUN apt update
 RUN apt install -y gettext
 RUN pip install git+https://github.com/groveco/django-sql-explorer.git
