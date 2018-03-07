@@ -1,7 +1,7 @@
 FROM python:3.6.4
 
 RUN pip install \
-  django==2.0.2 \
+  django==2.0.3 \
   Pillow==5.0.0 \
   django_admin_timeline==1.6.2 \
   django-ckeditor==5.4.0 \
@@ -9,12 +9,12 @@ RUN pip install \
   django-filter==2.0.0.dev1 \
   django-debug-toolbar==1.9.1 \
   psycopg2-binary==2.7.4 \
-  uwsgi==2.0.16 \
+  uwsgi==2.0.17 \
   python-decouple==3.1 \
   coverage==4.5.1 \
   django-rosetta==v0.8.1 \
   django-simple-captcha==0.5.6 \
-  django-extensions==1.9.9 \
+  django-extensions==2.0.0 \
   Werkzeug==0.14.1 \
   django_compressor==2.2 \
   django-grappelli==2.11.1
